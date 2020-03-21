@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 public class PrintListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp){
-        StaticList.closedFigures.forEach((System.out::println));
+        if(StaticList.closedFigures.isEmpty()){
+            System.out.println("List is empty.");
+        } else {
+            StaticList.closedFigures.forEach((System.out::println));
+        }
     }
 }

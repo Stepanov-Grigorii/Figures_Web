@@ -12,6 +12,10 @@ public class PrintSortedListServlet extends HttpServlet {
     Comparator<ClosedFigure> comparator = Comparator.comparing(ClosedFigure::getPriority).thenComparing(ClosedFigure::getArea);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp){
-        StaticList.closedFigures.stream().sorted(comparator).forEach(System.out::println);
+        if(StaticList.closedFigures.isEmpty()){
+            System.out.println("List is empty.");
+        } else {
+            StaticList.closedFigures.stream().sorted(comparator).forEach(System.out::println);
+        }
     }
 }
