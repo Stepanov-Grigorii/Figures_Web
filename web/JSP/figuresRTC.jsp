@@ -15,26 +15,38 @@
     <div>
         <h1>Меню</h1>
         <ul>
+            <li><a href="fill">Создать коллекцию фигур</a></li>
             <li><a href="print">Вывести фигуры</a></li>
             <li><a href="prints">Вывести фигуры в отсортированном порядке</a></li>
             <li><a href="printRTC">Вывести радиусы всех вписанных окружностей,
                 площади треугольников, характеристики правильных фигур</a></li>
         </ul>
     </div>
-    <h1>Радиусы вписанных окружностей, площади треугольников, характеристики правильных фигур</h1>
+    <h2>Радиусы вписанных окружностей</h2>
     <ol>
+        <c:if test = "${myFiguresR.isEmpty()}">
+            <p>Пусто</p>
+        </c:if>
         <c:forEach var="figure" items="${myFiguresR}">
-            <li>${figure}</li>
+            <li>${figure} radius =  ${figure.getRadiusOfInscribedCircle()}</li>
         </c:forEach>
     </ol>
+    <h2>Площади треугольников</h2>
     <ol>
+        <c:if test = "${myFiguresT.isEmpty()}">
+            <p>Пусто</p>
+        </c:if>
         <c:forEach var="figure" items="${myFiguresT}">
-            <li>${figure}</li>
+            <li>${figure} area = ${figure.getArea()}</li>
         </c:forEach>
     </ol>
+    <h2>Характеристики правильных фигур</h2>
     <ol>
+        <c:if test = "${myFiguresC.isEmpty()}">
+            <p>Пусто</p>
+        </c:if>
         <c:forEach var="figure" items="${myFiguresC}">
-            <li>${figure}</li>
+            <li>${figure} length = ${figure.getLength()} number of sides = ${figure.getNumberOfSides()}</li>
         </c:forEach>
     </ol>
 </body>

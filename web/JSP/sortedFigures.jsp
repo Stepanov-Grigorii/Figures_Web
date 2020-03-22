@@ -15,14 +15,18 @@
     <div>
         <h1>Меню</h1>
         <ul>
+            <li><a href="fill">Создать коллекцию фигур</a></li>
             <li><a href="print">Вывести фигуры</a></li>
             <li><a href="prints">Вывести фигуры в отсортированном порядке</a></li>
             <li><a href="printRTC">Вывести радиусы всех вписанных окружностей,
                 площади треугольников, характеристики правильных фигур</a></li>
         </ul>
     </div>
-    <h1>Отсортированный список фигур</h1>
+    <h2>Отсортированный список фигур</h2>
     <ol>
+        <c:if test = "${mySortedFigures.isEmpty()}">
+            <p>Пусто</p>
+        </c:if>
         <c:forEach var="figure" items="${mySortedFigures}">
             <li>${figure}</li>
         </c:forEach>

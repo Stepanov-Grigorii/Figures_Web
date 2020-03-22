@@ -2,13 +2,13 @@
   Created by IntelliJ IDEA.
   User: admin
   Date: 22.03.2020
-  Time: 14:15
+  Time: 19:47
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Main</title>
+    <title>Fill</title>
 </head>
 <body>
     <div>
@@ -21,5 +21,6 @@
                 площади треугольников, характеристики правильных фигур</a></li>
         </ol>
     </div>
+    <p>${myStatus}</p>
 </body>
 </html>

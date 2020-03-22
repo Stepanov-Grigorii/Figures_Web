@@ -24,6 +24,11 @@
         <servlet-class>ru.figures.servlet.PrintRTCServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>ru.figures.servlet.MainServlet</servlet-class>
+    </servlet>
+
 
 
     <servlet-mapping>
@@ -44,6 +49,11 @@
     <servlet-mapping>
         <servlet-name>PrintRTCServlet</servlet-name>
         <url-pattern>/printRTC</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/main</url-pattern>
     </servlet-mapping>
 
 </web-app>
