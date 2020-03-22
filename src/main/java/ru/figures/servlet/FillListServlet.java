@@ -3,19 +3,27 @@ package ru.figures.servlet;
 import ru.figures.StaticList;
 import ru.figures.model.*;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class FillListServlet extends HttpServlet {
+    boolean flag = true;
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp){
-        StaticList.closedFigures.add(new Rectangle(4.0, 5.0));
-        StaticList.closedFigures.add(new Circle(5));
-        StaticList.closedFigures.add(new Polygon(5, 6));
-        StaticList.closedFigures.add(new Triangle(4.0, 5.0, 6.0));
-        StaticList.closedFigures.add(new Rectangle(5.0, 5.0));
-        StaticList.closedFigures.add(new Polygon(8, 17));
-        StaticList.closedFigures.add(new Circle(6));
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(flag) {
+            StaticList.closedFigures.add(ClosedFigureFactory.createRectangle(4.0, 5.0));
+            StaticList.closedFigures.add(ClosedFigureFactory.createCircle(5));
+            StaticList.closedFigures.add(ClosedFigureFactory.createPolygon(5, 6));
+            StaticList.closedFigures.add(ClosedFigureFactory.createTriangle(4.0, 5.0, 6.0));
+            StaticList.closedFigures.add(ClosedFigureFactory.createRectangle(5.0, 5.0));
+            StaticList.closedFigures.add(ClosedFigureFactory.createPolygon(8, 17));
+            StaticList.closedFigures.add(ClosedFigureFactory.createCircle(6));
+            flag = false;
+        }
+        req.setAttribute("myStatus", "Фигуры загружены");
+        req.getRequestDispatcher("JSP/main.jsp").forward(req, resp);
     }
 }

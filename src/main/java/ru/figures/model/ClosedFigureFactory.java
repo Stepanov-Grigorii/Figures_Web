@@ -5,18 +5,17 @@ import java.util.*;
 public class ClosedFigureFactory {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static Circle createCircle() throws FiguresException {
-        int radius = (int) setLength();
+    public static Circle createCircle(int radius) throws FiguresException {
+        if(radius <= 0){
+            throw new RuntimeException("Radius mast be positive");
+        }
         Circle circle = new Circle();
         circle.setRadius(radius);
 
         return circle;
     }
 
-    public static Rectangle createRectangle() throws FiguresException {
-        Double width = setLength();
-        Double length = setLength();
-
+    public static Rectangle createRectangle(Double width, Double length) throws FiguresException {
 
         if(width.equals(length))
             return new Square(length);
@@ -24,8 +23,11 @@ public class ClosedFigureFactory {
         return new Rectangle(width, length);
     }
 
-    public static Triangle createTriangle() throws FiguresException {
-        List<Double> side = setSides();
+    public static Triangle createTriangle(Double a, Double b, Double c) throws FiguresException {
+        List<Double> side = new ArrayList<>();
+        side.add(a);
+        side.add(b);
+        side.add(c);
 
         if(side.get(0) == Math.sqrt(Math.pow(side.get(1), 2) + Math.pow(side.get(2), 2))) {
             return new RightTriangle(side.get(0), side.get(1), side.get(2));
@@ -33,10 +35,7 @@ public class ClosedFigureFactory {
         return new Triangle(side.get(0), side.get(1), side.get(2));
     }
 
-    public static Polygon createPolygon() throws FiguresException {
-        int numberOfSides = setNumberOfSides();
-        int length = (int) setLength();
-
+    public static Polygon createPolygon(int numberOfSides, int length) throws FiguresException {
         return new Polygon(numberOfSides, length);
     }
 
