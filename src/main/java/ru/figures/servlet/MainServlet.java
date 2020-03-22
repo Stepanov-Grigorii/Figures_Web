@@ -1,8 +1,5 @@
 package ru.figures.servlet;
 
-import ru.figures.StaticList;
-import ru.figures.model.ClosedFigureFactory;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

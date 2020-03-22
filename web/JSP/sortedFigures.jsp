@@ -24,12 +24,16 @@
     </div>
     <h2>Отсортированный список фигур</h2>
     <ol>
-        <c:if test = "${mySortedFigures.isEmpty()}">
-            <p>Пусто</p>
-        </c:if>
-        <c:forEach var="figure" items="${mySortedFigures}">
-            <li>${figure}</li>
-        </c:forEach>
+        <c:choose>
+            <c:when test = "${mySortedFigures.isEmpty()}">
+                <p>Пусто</p>
+            </c:when>
+            <c:otherwise>
+                <c:forEach var="figure" items="${mySortedFigures}">
+                    <li>${figure}</li>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </ol>
 </body>
 </html>

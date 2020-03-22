@@ -24,30 +24,42 @@
     </div>
     <h2>Радиусы вписанных окружностей</h2>
     <ol>
-        <c:if test = "${myFiguresR.isEmpty()}">
-            <p>Пусто</p>
-        </c:if>
-        <c:forEach var="figure" items="${myFiguresR}">
-            <li>${figure} radius =  ${figure.getRadiusOfInscribedCircle()}</li>
-        </c:forEach>
+        <c:choose>
+            <c:when test = "${myFiguresR.isEmpty()}">
+                <p>Пусто</p>
+            </c:when>
+            <c:otherwise>
+                <c:forEach var="figure" items="${myFiguresR}">
+                    <li>${figure} radius =  ${figure.getRadiusOfInscribedCircle()}</li>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </ol>
     <h2>Площади треугольников</h2>
     <ol>
-        <c:if test = "${myFiguresT.isEmpty()}">
-            <p>Пусто</p>
-        </c:if>
-        <c:forEach var="figure" items="${myFiguresT}">
-            <li>${figure} area = ${figure.getArea()}</li>
-        </c:forEach>
+        <c:choose>
+            <c:when test = "${myFiguresT.isEmpty()}">
+                <p>Пусто</p>
+            </c:when>
+            <c:otherwise>
+                <c:forEach var="figure" items="${myFiguresT}">
+                    <li>${figure} area = ${figure.getArea()}</li>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </ol>
     <h2>Характеристики правильных фигур</h2>
     <ol>
-        <c:if test = "${myFiguresC.isEmpty()}">
-            <p>Пусто</p>
-        </c:if>
-        <c:forEach var="figure" items="${myFiguresC}">
-            <li>${figure} length = ${figure.getLength()} number of sides = ${figure.getNumberOfSides()}</li>
-        </c:forEach>
+        <c:choose>
+            <c:when test = "${myFiguresC.isEmpty()}">
+                <p>Пусто</p>
+            </c:when>
+            <c:otherwise>
+                <c:forEach var="figure" items="${myFiguresC}">
+                    <li>${figure} length = ${figure.getLength()} number of sides = ${figure.getNumberOfSides()}</li>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </ol>
 </body>
 </html>
